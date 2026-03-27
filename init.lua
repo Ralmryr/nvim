@@ -20,6 +20,7 @@ vim.pack.add({
 	{ src = 'https://github.com/folke/snacks.nvim', version = vim.version.range('~2.23') },
 	{ src = 'https://github.com/Saghen/blink.cmp', version = vim.version.range('~1.7') },
 	{ src = 'https://github.com/folke/persistence.nvim', version = vim.version.range('~3.1.0') },
+	{ src = 'https://github.com/lewis6991/gitsigns.nvim', version = vim.version.range('~2.1.0') },
 })
 
 -- PLUGINS CONFIGURATION
@@ -64,6 +65,8 @@ require('blink.cmp').setup({
 })
 
 require('persistence').setup()
+require('gitsigns').setup()
+
 -- LSP CONFIG
 
 vim.lsp.config('rust_analyzer', {
@@ -114,6 +117,11 @@ vim.keymap.set('n', '<leader>sS', function() Snacks.picker.lsp_workspace_symbols
 -- Git
 vim.keymap.set('n', '<leader>gb', function() Snacks.git.blame_line() end, { desc = 'Git blame line' })
 vim.keymap.set('n', '<leader>gg', function() Snacks.lazygit.open() end, { desc = 'Lazygit' })
+local gs = require('gitsigns')
+vim.keymap.set('n', '<leader>ghp', function() gs.preview_hunk_inline() end, { desc = 'Preview Hunk Inline' })
+vim.keymap.set('n', '<leader>ghb', function() gs.preview_hunk_inline() end, { desc = 'Preview Hunk Inline' })
+vim.keymap.set('n', ']h', function() gs.nav_hunk('next') end, { desc = 'Next Hunk' })
+vim.keymap.set('n', '[h', function() gs.nav_hunk('prev') end, { desc = 'Previous Hunk' })
 
 -- Code
 vim.keymap.set('n', '<leader>cf', function() vim.lsp.buf.format() end, { desc = 'Format' })
