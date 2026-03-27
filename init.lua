@@ -139,6 +139,7 @@ vim.keymap.set('n', '<leader>qs', function() require('persistence').load() end, 
 
 vim.cmd('colorscheme tokyonight')
 vim.opt.winborder = 'rounded'
+vim.opt.cursorline = true
 
 -- Flash yanked content
 vim.api.nvim_create_autocmd('TextYankPost', {
