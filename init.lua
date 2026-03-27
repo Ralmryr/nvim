@@ -79,15 +79,19 @@ vim.lsp.config('rust_analyzer', {
 		},
 	},
 })
-vim.lsp.config("pyrefly", {
+vim.lsp.config('pyrefly', {
   settings = {
-    python = { pyrefly = { displayTypeErrors = "force-on", }, },
+    python = { pyrefly = { displayTypeErrors = 'force-on', }, },
   },
 })
+vim.lsp.config('clangd', {
+	cmd = { 'clangd-18', '--background-index' },
+})
 
-vim.lsp.enable('rust_analyzer')
+vim.lsp.enable('clangd')
 vim.lsp.enable('pyrefly')
 vim.lsp.enable('ruff')
+vim.lsp.enable('rust_analyzer')
 
 -- EDITOR BEHAVIOR
 
