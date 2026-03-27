@@ -36,6 +36,9 @@ require('tokyonight').setup({
 	styles = {
 		floats = transparent and 'transparent' or 'dark',
 	},
+	on_colors = function(colors)
+		colors.fg = '#ffffff'
+	end,
 })
 
 require('lualine').setup({
