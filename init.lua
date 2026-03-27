@@ -54,8 +54,6 @@ require('snacks').setup({
 			border = 'single',
 		},
 	},
-	git = { enabled = true },
-	lazygit = { enabled = true },
 })
 
 require('blink.cmp').setup({
