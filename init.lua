@@ -71,9 +71,14 @@ vim.lsp.config('rust_analyzer', {
 	settings = {
 		['rust-analyzer'] = {
 			-- Keep rust-analyzer from providing function arguments snippets
-			completion = { callable = { snippets = 'add_parentheses' } },
+			completion = { callable = { snippets = 'add_parentheses' }, },
 		},
 	},
+})
+vim.lsp.config("pyrefly", {
+  settings = {
+    python = { pyrefly = { displayTypeErrors = "force-on", }, },
+  },
 })
 
 vim.lsp.enable('rust_analyzer')
