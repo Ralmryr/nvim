@@ -140,6 +140,13 @@ vim.keymap.set('n', '<leader>qs', function() require('persistence').load() end, 
 vim.cmd('colorscheme tokyonight')
 vim.opt.winborder = 'rounded'
 
+-- Flash yanked content
+vim.api.nvim_create_autocmd('TextYankPost', {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})
+
 -- Make backround transparent
 if transparent then
 	vim.cmd([[
