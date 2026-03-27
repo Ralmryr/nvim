@@ -19,6 +19,7 @@ vim.pack.add({
 	{ src = 'https://github.com/nvim-lualine/lualine.nvim', version = 'b8c2315' },
 	{ src = 'https://github.com/folke/snacks.nvim', version = vim.version.range('~2.23') },
 	{ src = 'https://github.com/Saghen/blink.cmp', version = vim.version.range('~1.7') },
+	{ src = 'https://github.com/folke/persistence.nvim', version = vim.version.range('~3.1.0') },
 })
 
 -- PLUGINS CONFIGURATION
@@ -62,6 +63,7 @@ require('blink.cmp').setup({
 	signature = { enabled = true },
 })
 
+require('persistence').setup()
 -- LSP CONFIG
 
 vim.lsp.config('rust_analyzer', {
@@ -121,6 +123,9 @@ vim.keymap.set('n', '<leader>uh', function() vim.lsp.inlay_hint.enable(not vim.l
 
 -- Toggle terminal (in mappings, '/' is represented by '_')
 vim.keymap.set({ 'n', 't' }, '<c-_>', function() Snacks.terminal() end, { desc = 'Toggle terminal' })
+
+-- Session management
+vim.keymap.set('n', '<leader>qs', function() require('persistence').load() end, { desc = 'Load previous session' })
 
 -- UI
 
