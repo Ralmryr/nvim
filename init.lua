@@ -21,6 +21,7 @@ vim.pack.add({
 	{ src = 'https://github.com/Saghen/blink.cmp', version = vim.version.range('~1.7') },
 	{ src = 'https://github.com/folke/persistence.nvim', version = vim.version.range('~3.1.0') },
 	{ src = 'https://github.com/lewis6991/gitsigns.nvim', version = vim.version.range('~2.1.0') },
+	{ src = 'https://github.com/nvim-mini/mini.icons', version = 'main' },
 })
 
 -- PLUGINS CONFIGURATION
