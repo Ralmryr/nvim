@@ -14,7 +14,8 @@ local transparent = false
 -- PLUGINS DECLARATION
 
 vim.pack.add({
-  { src = 'https://github.com/neovim/nvim-lspconfig', version = vim.version.range('~2.5') },
+	{ src = 'https://github.com/neovim/nvim-lspconfig', version = vim.version.range('~2.5') },
+	{ src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
 	{ src = 'https://github.com/folke/tokyonight.nvim', version = vim.version.range('~4.12') },
 	{ src = 'https://github.com/nvim-lualine/lualine.nvim', version = 'b8c2315' },
 	{ src = 'https://github.com/folke/snacks.nvim', version = vim.version.range('~2.23') },
@@ -25,6 +26,8 @@ vim.pack.add({
 })
 
 -- PLUGINS CONFIGURATION
+
+require('nvim-treesitter').setup()
 
 require('tokyonight').setup({
 	transparent = transparent,
@@ -139,6 +142,14 @@ vim.keymap.set({ 'n', 't' }, '<c-_>', function() Snacks.terminal() end, { desc =
 
 -- Session management
 vim.keymap.set('n', '<leader>qs', function() require('persistence').load() end, { desc = 'Load previous session' })
+
+-- Treesitter highlithing
+vim.keymap.set('n', '<leader>ut', function() vim.treesitter.start() end, { desc = 'Enable Treesitter Highlighting' })
+vim.keymap.set('n', '<leader>uT', function() vim.treesitter.stop() end, { desc = 'Disable Treesitter Highlighting' })
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = { 'c', 'cpp', 'lua', 'python', 'rust'},
+	callback = function() vim.treesitter.start() end,
+})
 
 -- UI
 
