@@ -120,6 +120,7 @@ vim.keymap.set('n', '<leader>sS', function() Snacks.picker.lsp_workspace_symbols
 -- Git
 vim.keymap.set('n', '<leader>gb', function() Snacks.git.blame_line() end, { desc = 'Git blame line' })
 vim.keymap.set('n', '<leader>gg', function() Snacks.lazygit.open() end, { desc = 'Lazygit' })
+vim.keymap.set('n', '<leader>gB', function() Snacks.gitbrowse() end, { desc = 'Git Browse' })
 local gs = require('gitsigns')
 vim.keymap.set('n', '<leader>ghp', function() gs.preview_hunk_inline() end, { desc = 'Preview Hunk Inline' })
 vim.keymap.set('n', '<leader>ghb', function() gs.preview_hunk_inline() end, { desc = 'Preview Hunk Inline' })
