@@ -53,7 +53,7 @@ require('snacks').setup({
 		layout = { fullscreen = true, },
     win = {
 			input = {
-				keys = { ['<m-cr>'] = { 'tab', mode = { 'i', 'n' }, desc = 'Open tab' }, },
+				keys = { ['<m-cr>'] = { 'tab', mode = { 'i', 'n' }, desc = 'Open in new tab' }, },
 			},
 		},
 	},
@@ -125,10 +125,13 @@ vim.keymap.set('n', '<leader>sw', function() Snacks.picker.grep_word() end, { de
 vim.keymap.set('n', '<leader>ss', function() Snacks.picker.lsp_symbols() end, { desc = 'LSP Symbols' })
 vim.keymap.set('n', '<leader>sS', function() Snacks.picker.lsp_workspace_symbols() end, { desc = 'LSP Workspace Symbols' })
 vim.keymap.set('n', 'gd', function() Snacks.picker.lsp_definitions() end, { desc = 'Goto Definition' })
+vim.keymap.set('n', 'gtd', function() vim.cmd('tab split') Snacks.picker.lsp_definitions() end, { desc = 'Goto Definition (New Tab)' })
 vim.keymap.set('n', 'gD', function() Snacks.picker.lsp_declarations() end, { desc = 'Goto Declaration' })
+vim.keymap.set('n', 'gtD', function() vim.cmd('tab split') Snacks.picker.lsp_declarations() end, { desc = 'Goto Declaration (New Tab)' })
 vim.keymap.set('n', 'gr', function() Snacks.picker.lsp_references() end, { nowait = true, desc = 'Goto References' })
-vim.keymap.set('n', 'gI', function() Snacks.picker.lsp_implementations() end, { desc = 'Goto Implementation' })
+vim.keymap.set('n', 'gtr', function() vim.cmd('tab split') Snacks.picker.lsp_references() end, { nowait = true, desc = 'Goto References (New Tab)' })
 vim.keymap.set('n', 'gy', function() Snacks.picker.lsp_type_definitions() end, { desc = 'Goto T[y]pe Definition' })
+vim.keymap.set('n', 'gty', function() vim.cmd('tab split') Snacks.picker.lsp_type_definitions() end, { desc = 'Goto T[y]pe Definition (New Tab)' })
 
 -- Git
 vim.keymap.set('n', '<leader>gb', function() Snacks.git.blame_line() end, { desc = 'Git blame line' })
